@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Car Rental</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="add-car.html">Add Car</a></li>
+            <li><a href="manage-cars.html">Manage Cars</a></li>
+            <li><a href="enquiries.html">Customer Management</a></li>
+            <li><a href="pricing-management.html">Pricing Management</a></li>
+            <li><a href="financial-reports.html">Financial Reports</a></li>
+            <li><a href="maintenance.html">Car Maintenance</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Add New Car Rental</h1>
+        </header>
+     <!-- Message box for feedback -->
+     <div id="message" style="display: none;"></div>
+
+        <!-- Add New Car Rental Form -->
+        <section class="form-section">
+            <h2>Fill in the Details</h2>
+            <form id="addCarForm" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Fill in the Details</legend>
+                    <label>Car Name:<br>
+                        <input type="text" name="carName" required>
+                    </label><br><br>
+                    <label>Number Plate (Car ID):<br>
+                        <input type="text" name="carId" placeholder="e.g. KDA123A" required>
+                    </label><br><br>
+                    <label>Front Image:<br>
+                        <input type="file" name="frontImage" required>
+                    </label><br><br>
+
+                    <label>Side Image:<br>
+                        <input type="file" name="sideImage" required>
+                    </label><br><br>
+
+                    <label>Back Image:<br>
+                        <input type="file" name="backImage" required>
+                    </label><br><br>
+
+                    <label>Car Description:<br>
+                        <textarea name="carDescription" required></textarea>
+                    </label><br><br>
+
+                    <label>Price:<br>
+                        <input type="number" name="price" required>
+                    </label><br><br>
+
+                    <label>Currency:<br>
+                        <select name="currency">
+                            <option value="Ksh">Ksh</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </label><br><br>
+
+                    <label>Category:<br>
+                        <select name="category">
+                            <option value="Economy">Economy</option>
+                            <option value="Premium">Premium</option>
+                            <option value="VIP">VIP</option>
+                        </select>
+                    </label><br><br>
+
+                    <label>Seats:<br>
+                        <input type="number" name="seats" placeholder="e.g. 5 seats" required>
+                    </label><br><br>
+
+                    <label>Transmission:<br>
+                        <input type="text" name="transmission" placeholder="e.g. Automatic" required>
+                    </label><br><br>
+
+                    <label>Age Requirement:<br>
+                        <input type="text" name="ageRequirement" placeholder="e.g. 21+ Years" required>
+                    </label><br><br>
+
+                    <label>Mileage:<br>
+                        <input type="text" name="mileage" placeholder="e.g. 27-35 mpg" required>
+                    </label><br><br>
+
+                    <button type="submit">Add Car</button>
+                </fieldset>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Car Rental Website</p>
+    </footer>
+     <script>
+   const form = document.getElementById("addCarForm");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(form);
+
+  fetch("/add-car", {
+    method: "POST",
+    body: formData
+  })
+  .then((response) => {
+    if (!response.ok) return response.text().then(text => { throw new Error(text); });
+    return response.text();
+  })
+  .then((data) => {
+    console.log("✅ Success:", data);
+    form.reset();
+    showMessage(data, "success");
+  })
+  .catch((error) => {
+    console.error("❌ Fetch error:", error.message);
+    showMessage("Error: " + error.message, "error");
+  });
+});
+
+function showMessage(msg, type) {
+  const box = document.getElementById("message");
+  if (box) {
+    box.textContent = msg;
+    box.className = type;
+    box.style.display = "block";
+  } else {
+    alert(msg);
+  }
+}
+
+  </script>
+</body>
+</html>

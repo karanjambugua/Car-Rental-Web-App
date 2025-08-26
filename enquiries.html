@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Enquiries</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Admin - Enquiries</h1>
+  <h2>Submitted Enquiries</h2>
+  <div id="submission-list">
+    <!-- Submitted enquiries will be displayed here -->
+  </div>
+
+  <script>
+    // Fetch the enquiry data from the server (submissions.json)
+    fetch('http://localhost:3000/view-enquiries')
+      .then(response => response.json())
+      .then(data => {
+        const submissionList = document.getElementById('submission-list');
+        
+        // Loop through the submissions and display each one
+        data.forEach(submission => {
+          const div = document.createElement('div');
+          div.classList.add('submission');
+          div.innerHTML = `
+            <h3>${submission.name}</h3>
+            <p><strong>Email:</strong> ${submission.email}</p>
+            <p><strong>Phone:</strong> ${submission.phone}</p>
+            <p><strong>Pickup Location:</strong> ${submission.pickupLocation}</p>
+            <p><strong>Pickup Date:</strong> ${submission.pickupDate}</p>
+            <p><strong>Return Date:</strong> ${submission.returnDate}</p>
+            <hr>
+          `;
+          submissionList.appendChild(div);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching submissions:', error);
+        document.getElementById('submission-list').innerHTML = 'There was an error loading the submissions.';
+      });
+  </script>
+</body>
+</html>

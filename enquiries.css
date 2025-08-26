@@ -1,0 +1,108 @@
+/* Basic reset for margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+/* Page title */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Enquiries container */
+#enquiries {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Submissions section */
+#enquiries h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* Individual submission container */
+#submissionList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#submissionList .submission-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for each submission card */
+#submissionList .submission-container:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Submission title styling (e.g., Pickup Location) */
+.submission-container h3 {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Submission detail styling */
+.submission-container p {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Custom style for strong elements (labels for fields) */
+.submission-container .field-label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Adding separation between different submissions */
+.submission-container hr {
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  #enquiries {
+    padding: 15px;
+  }
+
+  .submission-container {
+    padding: 15px;
+  }
+}

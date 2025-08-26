@@ -1,0 +1,149 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "carName": "Toyota Camry",
+      "images": {
+        "front": "images/camry front.jpg",
+        "side": "images/camry side.jpg",
+        "back": "images/camry back.jpg"
+      },
+      "carDescription": "A spacious sedan perfect for family trips.",
+      "price": 50,
+      "currency": "USD",
+      "status": "Available",
+      "category": "Economy",
+      "availability": true,
+      "features": {
+        "seats": "4 seats",
+        "transmission": "Automatic",
+        "ageRequirement": "21+ Years",
+        "mileage": "27–35 mpg"
+      }
+    },
+    {
+      "id": 2,
+      "carName": "BMW X5",
+      "images": {
+        "front": "images/bmw front.jpg",
+        "side": "images/bmw side.jpg",
+        "back": "images/bmw back.jpg"
+      },
+      "carDescription": "Luxury SUV with advanced features.",
+      "price": 100,
+      "currency": "USD",
+      "status": "Rented",
+      "category": "VIP",
+      "availability": false,
+      "features": {
+        "seats": "5 seats",
+        "transmission": "Automatic",
+        "ageRequirement": "25+ Years",
+        "mileage": "20–25 mpg"
+      }
+    },
+    {
+      "id": "KDU 447C",
+      "carName": "Subaru Forester",
+      "images": {
+        "front": "images/forester front.jpg",
+        "side": "images/forester side.jpg",
+        "back": "images/forester back.jpg"
+      },
+      "carDescription": "available",
+      "price": 8000,
+      "currency": "Ksh",
+      "status": "Available",
+      "category": "Economy",
+      "availability": true,
+      "features": {
+        "seats": "5",
+        "transmission": "Automatic",
+        "ageRequirement": "21",
+        "mileage": "30"
+      }
+    },
+    {
+      "id": "KDU 448C",
+      "carName": "Subaru Forester",
+      "images": {
+        "front": "images/1753833597880-forester front.jpg",
+        "side": "images/1753833597880-forester back.jpg",
+        "back": "images/1753833597881-forester side.jpg"
+      },
+      "carDescription": "available",
+      "price": 8000,
+      "currency": "Ksh",
+      "status": "Available",
+      "category": "Economy",
+      "availability": true,
+      "features": {
+        "seats": "5",
+        "transmission": "Automatic",
+        "ageRequirement": "21",
+        "mileage": "30"
+      }
+    },
+    {
+      "id": "KDQ447R",
+      "carName": "Mercedes AMG c63",
+      "images": {
+        "front": "images/1753990030095-c63 front.jpg",
+        "side": "images/1753990030100-c63 side.jpg",
+        "back": "images/1753990030101-c63back.jpg"
+      },
+      "carDescription": "Available for hire",
+      "price": 10000,
+      "currency": "Ksh",
+      "status": "Available",
+      "category": "Economy",
+      "availability": true,
+      "features": {
+        "seats": "5",
+        "transmission": "automatic",
+        "ageRequirement": "30",
+        "mileage": "30"
+      }
+    },
+    {
+      "id": "kdg456u",
+      "carName": "Subaru wrx",
+      "images": {
+        "front": "images/1753990951752-subaru front.jpg",
+        "side": "images/1753990951753-subaru side.jpg",
+        "back": "images/1753990951754-subaru back.jpg"
+      },
+      "carDescription": "Available for rental",
+      "price": 5000,
+      "currency": "Ksh",
+      "status": "Available",
+      "category": "Economy",
+      "availability": true,
+      "features": {
+        "seats": "5",
+        "transmission": "manual",
+        "ageRequirement": "23",
+        "mileage": "90"
+      }
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "customer": "John Doe",
+      "carId": 1,
+      "startDate": "2025-07-01",
+      "endDate": "2025-07-07",
+      "status": "Confirmed"
+    },
+    {
+      "id": 2,
+      "customer": "Jane Smith",
+      "carId": 2,
+      "startDate": "2025-07-05",
+      "endDate": "2025-07-10",
+      "status": "Pending"
+    }
+  ],
+  "earnings": 1220
+}

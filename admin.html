@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Car Rentals</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="add-car.html">Add Car</a></li>
+            <li><a href="manage-cars.html">Manage Cars</a></li>
+            <li><a href="customer-management.html">Customer Management</a></li>
+            <li><a href="pricing-management.html">Pricing Management</a></li>
+            <li><a href="financial-reports.html">Financial Reports</a></li>
+            <li><a href="maintenance.html">Car Maintenance</a></li>
+            <li><a href="home.html">Return Home</a></li>
+        </ul>
+    </div>
+
+   <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+        </header>
+
+        <!-- Dashboard Overview -->
+        <section class="dashboard">
+            <h2>Dashboard Overview</h2>
+            <div class="stats">
+                <div class="stat-card" id="totalCars">
+                    <h3>Total Cars</h3>
+                    <p>Loading...</p>
+                </div>
+                <div class="stat-card" id="totalRentals">
+                    <h3>Total Rentals</h3>
+                    <p>Loading...</p>
+                </div>
+                <div class="stat-card" id="totalEarnings">
+                    <h3>Total Earnings</h3>
+                    <p>Loading...</p>
+                </div>
+                <div class="stat-card" id="pendingReservations">
+                    <h3>Pending Reservations</h3>
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Trends Graph (Placeholder) -->
+        <section class="booking-trends">
+            <h2>Booking Trends</h2>
+            <div id="booking-trends-graph">
+                <!-- A chart or graph will go here -->
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="recent-activity">
+            <h2>Recent Activity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reservation</th>
+                        <th>Car</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="recentReservations">
+                    <!-- Dynamically populate recent reservations here -->
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Car Rental Website</p>
+    </footer>
+
+
+    <script>
+    // Function to fetch and display data from data.json
+    fetch('/data.json')  // Updated to use relative path (assuming data.json is in the same directory)
+        .then(response => {
+            // Check if the response is successful (status code 200)
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Update Total Cars
+            const totalCars = data.cars.length;
+            document.getElementById('totalCars').querySelector('p').textContent = totalCars;
+
+            // Update Total Rentals
+            const totalRentals = data.reservations.length;
+            document.getElementById('totalRentals').querySelector('p').textContent = totalRentals;
+
+            // Update Total Earnings
+            const totalEarnings = data.earnings;
+            document.getElementById('totalEarnings').querySelector('p').textContent = `$${totalEarnings.toLocaleString()}`;
+
+            // Update Pending Reservations
+            const pendingReservations = data.reservations.filter(reservation => reservation.status === 'Pending').length;
+            document.getElementById('pendingReservations').querySelector('p').textContent = pendingReservations;
+
+            // Update Recent Reservations Table
+            const recentReservationsTable = document.getElementById('recentReservations');
+            data.reservations.slice(0, 5).forEach(reservation => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${reservation.customer}</td>
+                    <td>${reservation.carName}</td>
+                    <td>${reservation.status}</td>
+                `;
+                recentReservationsTable.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            alert('There was an error loading the data.');
+        });
+</script>
+
+
+</body>
+</html>

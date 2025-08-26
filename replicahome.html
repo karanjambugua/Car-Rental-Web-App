@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEGANCE | Rent a Car in Minutes</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="submit-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+  <div class="logo">ELEGANCE</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Services</a>
+      <div class="dropdown-content">
+        <a href="#car-hire">Car Hire</a>
+        <a href="#leasing">Leasing</a>
+        <a href="#fleet">Fleet Management</a>
+        <a href="testimonials.html">Testimonials</a>
+      </div>
+    </li>+
+    <li><a href="#">Compare</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="admin.html">Add Car</a></li>
+  </ul>
+</nav>
+
+        
+    </header>
+<section class="hero-booking">
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="tag">CAR RENTAL</span>
+      <h1>Find Affordable Dream<br>Cars for Rental</h1>
+      <p>
+        Fulfill your automotive fantasies without breaking the bank.
+        Check our affordable car rentals for an opulent yet economical ride.
+      </p>
+ <h1>Rent a Car in Kenya</h1>
+        <form class="booking-form" action="https://formsubmit.co/florayola7@gmail.com" method="POST">
+            
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Pickup Location -->
+            <div class="form-group">
+                <label for="pickup-location">Pickup Location</label>
+                <input type="text" name="pickupLocation" id="pickup-location" placeholder="Enter pickup location" required>
+            </div>
+
+            <!-- Pickup Date -->
+            <div class="form-group">
+                <label for="pickup-date">Pickup Date</label>
+                <input type="date" name="pickupDate" id="pickup-date" required>
+            </div>
+
+            <!-- Pickup Time -->
+            <div class="form-group">
+                <label for="pickup-time">Pickup Time</label>
+                <input type="time" name="pickupTime" id="pickup-time" required>
+            </div>
+
+            <!-- Return Date -->
+            <div class="form-group">
+                <label for="return-date">Return Date</label>
+                <input type="date" name="returnDate" id="return-date" required>
+            </div>
+
+            <!-- Return Time -->
+            <div class="form-group">
+                <label for="return-time">Return Time</label>
+                <input type="time" name="returnTime" id="return-time" required>
+            </div>
+
+            <!-- Different Return Location -->
+            <div class="form-group">
+                <label for="different-return">Different Return Location</label>
+                <input type="checkbox" name="differentReturn" id="different-return">
+            </div>
+
+            <!-- Hidden field for FormSubmit redirection -->
+            <input type="hidden" name="_next" value="http://localhost:3000/success">
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/wall22.png" alt="Luxury Car" />
+    </div>
+  </div>
+</section>
+
+
+<!-- Banner Hero Section (insert below header or #home) -->
+<section id="luxury-banner" class="luxury-banner">
+    <div class="banner-content">
+        <div class="banner-text">
+            <span class="tag">CAR RENTAL</span>
+            <h1>Find Affordable Dream<br>Cars for Rental</h1>
+            <p>Fulfill your automotive fantasies without breaking the bank. Check our affordable car rentals for an opulent yet economical ride.</p>
+            <button class="cta-btn">Get in Touch</button>
+        </div>
+        <div class="banner-image slider">
+    <div class="slide-track">
+        <img src="images/noah.png" alt="Car 1" />
+        <img src="images/note.png" alt="Car 2" />
+        <img src="images/mercedes.png" alt="Car 3" />
+        <img src="images/prado.png" alt="Car 4" />
+    </div>
+</div>
+    </div>
+</section>
+<section id="car-categories">
+  <div class="category-tabs">
+    <button class="tab active" onclick="showCategory('affordable')">Affordable</button>
+    <button class="tab" onclick="showCategory('suv')">SUVs & Minivans</button>
+    <button class="tab" onclick="showCategory('premium')">Premium</button>
+  </div>
+
+  <div class="category-content affordable active">
+  <div class="car-card">
+    <img src="images/sedan orig.png" alt="Luxury Sedan">
+    <h3> Sedan</h3>
+    <p class="price">From $100/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png" alt="Seats"><span>4 seats</span></div>
+      <div class="feature"><img src="images/transmission.png" alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>21+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png" alt="Fuel"><span>27–35 mpg</span></div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="images/demio.png" alt="Economic">
+    <h3>Economic</h3>
+    <p class="price">From $130/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png" alt="Seats"><span>4 seats</span></div>
+      <div class="feature"><img src="images/transmission.png" alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>21+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png" alt="Fuel"><span>27–35 mpg</span></div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="images/sedan.png" alt="Hatchback">
+    <h3>Hatchback</h3>
+    <p class="price">From $150/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png" alt="Seats"><span>4 seats</span></div>
+      <div class="feature"><img src="images/transmission.png" alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>21+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png" alt="Fuel"><span>27–35 mpg</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="category-content suv">
+  <div class="car-card">
+    <img src="images/minivan.png" alt="Minivan">
+    <h3>Minivan</h3>
+    <p class="price">From $120/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png" alt="Seats"><span>6 seats</span></div>
+      <div class="feature"><img src="images/transmission.png" alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>25+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png" alt="Fuel"><span>19–26 mpg</span></div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="images/minisuv.png" alt="Mini-SUV">
+    <h3>Mini-SUV</h3>
+    <p class="price">From $160/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png"alt="Seats"><span>5 seats</span></div>
+      <div class="feature"><img src="images/transmission.png" alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>25+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png" alt="Fuel"><span>20–30 mpg</span></div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="images/crown.png" alt="Crossover">
+    <h3>Luxury-Sedan</h3>
+    <p class="price">From $145/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png"alt="Seats"><span>5 seats</span></div>
+      <div class="feature"><img src="images/transmission.png" alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>25+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png" alt="Fuel"><span>20–30 mpg</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="category-content premium">
+  <div class="car-card">
+    <img src="images/pradosuv.png" alt="Toyota Landcruiser">
+    <h3>Toyota Landcruiser</h3>
+    <p class="price">From $280/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png" alt="Seats"><span>7 seats</span></div>
+      <div class="feature"><img src="images/transmission.png"  alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>25+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png"alt="Fuel"><span>14–19 mpg</span></div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="images/suv.png" alt="Mitsubishi">
+    <h3>Mitsubishi</h3>
+    <p class="price">From $300/day</p>
+    <div class="features">
+     <div class="feature"><img src="images/seat.png" alt="Seats"><span>7 seats</span></div>
+      <div class="feature"><img src="images/transmission.png"  alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>25+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png"alt="Fuel"><span>14–19 mpg</span></div>
+    </div>
+  </div>
+  <div class="car-card">
+    <img src="images/g63.png" alt="Mercedes-Benz G63">
+    <h3>Mercedes-Benz G63</h3>
+    <p class="price">From $310/day</p>
+    <div class="features">
+      <div class="feature"><img src="images/seat.png" alt="Seats"><span>6 seats</span></div>
+      <div class="feature"><img src="images/transmission.png"  alt="Automatic"><span>Automatic</span></div>
+      <div class="feature"><img src="images/age.png" alt="Age"><span>25+ Years</span></div>
+      <div class="feature"><img src="images/fuel.png"alt="Fuel"><span>14–19 mpg</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="view-all-container">
+  <button class="view-all-btn">View All Cars</button>
+</div>
+
+</section>
+
+</section>
+
+    <section id="hero-intro" class="intro-banner">
+  <div class="intro-overlay">
+    <h1 class="intro-heading">Drive in Elegance</h1>
+    <p class="intro-subtext">Step into comfort and class with our top-rated rental cars.</p>
+    <button class="intro-btn" onclick="bookNow()">Book Now</button>
+  </div>
+</section>
+    
+  <footer>
+  <div class="footer-overlay">
+    <div class="footer-column">
+      <div class="footer-logo">
+        🚗 <span>ELEGANCE</span>
+      </div>
+      <p>101 Luxury Lane, Nairobi, Kenya</p>
+      <p>Email: <a href="mailto:info@elegancecars.com">info@elegancecars.com</a></p>
+      <p>Phone: +254-712-345678</p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#compare">Compare Cars</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Testimonials</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column footer-newsletter">
+      <h4>Newsletter</h4>
+      <p>Stay updated with offers & new arrivals.</p>
+      <input type="email" placeholder="Your email">
+      <button>Subscribe</button>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 ELEGANCE Car Rental. All rights reserved.
+  </div>
+</footer>
+
+
+    <script>
+  function showCategory(category) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.category-content');
+
+    tabs.forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    contents.forEach(content => {
+      content.classList.remove('active');
+    });
+
+    document.querySelector(`.tab[onclick*="${category}"]`).classList.add('active');
+    document.querySelector(`.category-content.${category}`).classList.add('active');
+  }
+  document.querySelector('.dropbtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    const menu = document.querySelector('.dropdown-content');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Optional: Close dropdown when clicking elsewhere
+  window.addEventListener('click', function (e) {
+    const dropdown = document.querySelector('.dropdown-content');
+    if (!e.target.matches('.dropbtn')) {
+      dropdown.style.display = 'none';
+    }
+  });
+  //submit form
+  // Optional: Use JavaScript to capture form submission and handle it 
+    document.querySelector("#booking-form").addEventListener("submit", function (e) {
+      // Prevent the default form submission (FormSubmit will handle the email sending)
+      e.preventDefault();
+
+      // Capture the form data
+      const formData = new FormData(this);
+
+      // Send the form data to the server to store in JSON
+      fetch('/submit-booking', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Data submitted and stored:", data);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+
+      // Allow FormSubmit to handle email submission after the data is saved
+      e.target.submit(); // This lets FormSubmit handle the email after we submit the form
+    });
+</script>
+
+</body>
+</html>

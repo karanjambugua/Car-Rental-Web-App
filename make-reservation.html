@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Make a Reservation</title>
+  <link rel="stylesheet" href="make-reservation.css" />
+</head>
+<body>
+   <header>
+        <nav class="navbar">
+  <div class="logo">ELEGANCE</div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Services</a>
+      <div class="dropdown-content">
+        <a href="#car-hire">Car Hire</a>
+        <a href="#leasing">Leasing</a>
+        <a href="#fleet">Fleet Management</a>
+        <a href="testimonials.html">Testimonials</a>
+      </div>
+    </li>+
+    <li><a href="#">Compare</a></li>
+    <li><a href="#">Contact</a></li>
+    
+  </ul>
+</nav>
+
+        
+    </header>
+
+  <main>
+    <!-- Available Cars -->
+    <section class="available-cars" id="availableCars">
+      <h2>Available Cars</h2>
+      <div class="car-list" id="carList">
+        <!-- Cars from data.json will load here -->
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="reservation-form" id="reservationFormSection" style="display:none;">
+      <h2>Reserve Car</h2>
+      <form id="reservationForm" method="POST" action="saveReservation.php" enctype="multipart/form-data">
+        <input type="hidden" name="carId" id="carId" />
+        <label for="customerName">Your Name:</label>
+        <input type="text" name="customerName" id="customerName" required />
+
+        <label for="startDate">Start Date & Time:</label>
+        <input type="datetime-local" name="startDate" id="startDate" required />
+
+        <label for="endDate">End Date & Time:</label>
+        <input type="datetime-local" name="endDate" id="endDate" required />
+
+        <button type="submit">Confirm Reservation</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="make-reservation.js"></script>
+</body>
+</html>
