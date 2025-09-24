@@ -53,14 +53,18 @@ loginForm.addEventListener('submit', async function(event) {
   }
 
   try {
+   // Fetch the correct API URL from the environment variable
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'; // Default to localhost if not set
+
     // Sending POST request to the backend
-    const response = await fetch('http://localhost:3000/login', {  // Ensure this matches the backend route
-      method: 'POST',  // Ensure POST method is used
+    const response = await fetch(`${apiUrl}/login`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password }),  // Send the email and password as a JSON body
+      body: JSON.stringify({ email, password }), // Send the email and password as a JSON body
     });
+
 
     // Check if the response is OK (status 200-299)
     if (!response.ok) {
