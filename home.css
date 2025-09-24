@@ -19,7 +19,10 @@ header {
     font-weight: bold;
     color: #d4af37;
 }
-
+/* Initially hide the admin link */
+#adminLink {
+  display: none;
+}
 .nav-links {
     list-style: none;
     display: flex;

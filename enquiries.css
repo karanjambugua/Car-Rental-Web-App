@@ -1,108 +1,88 @@
-/* Basic reset for margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body styling */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  height: 100vh;
   padding: 20px;
+  position: fixed;
 }
 
-/* Page title */
-h1 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
+.sidebar h2 {
+  color: #d4af37;
 }
 
-/* Enquiries container */
-#enquiries {
-  max-width: 1000px;
-  margin: 0 auto;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  color: #f1c40f;
+}
+main {
+    margin-left: 270px;  /* Allow space for the sidebar */
+    padding: 20px;
+    background-color: #ecf0f1;
+    min-height: 100vh;  /* Ensure the content takes full height */
+}
+
+.customer-enquiries {
+  padding: 20px;
   background-color: #fff;
-  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 
-/* Submissions section */
-#enquiries h2 {
-  font-size: 1.5rem;
-  color: #333;
+.customer-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 280px;
+  text-align: center;
   margin-bottom: 20px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-  text-align: center;
 }
 
-/* Individual submission container */
-#submissionList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-#submissionList .submission-container {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  border: 1px solid #f0f0f0;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect for each submission card */
-#submissionList .submission-container:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Submission title styling (e.g., Pickup Location) */
-.submission-container h3 {
-  font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Submission detail styling */
-.submission-container p {
-  color: #666;
+.customer-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 10px;
-  font-size: 0.95rem;
 }
 
-/* Custom style for strong elements (labels for fields) */
-.submission-container .field-label {
+.customer-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
   font-weight: bold;
-  color: #333;
 }
 
-/* Adding separation between different submissions */
-.submission-container hr {
-  margin-top: 15px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
+.customer-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
 }
 
-/* Responsive styling */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-
-  #enquiries {
-    padding: 15px;
-  }
-
-  .submission-container {
-    padding: 15px;
-  }
+.customer-card .agreement-image {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
 }
+

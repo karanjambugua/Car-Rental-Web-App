@@ -1,0 +1,97 @@
+/* General Body Styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+/* Main Login Container */
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 1100px;
+}
+
+/* Login Form on the Left Side */
+.login-form {
+  width: 48%; /* Adjust width of form */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-form button {
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Image Container on the Right Side */
+.image-container {
+  width: 48%; /* Adjust width of image container */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%; /* Make sure it fills the container */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Image Background Styling (in case you are using a background image) */
+.login-image {
+  flex: 1;
+  background-image: url('images/lo.jpg');  /* Replace with actual image path */
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+

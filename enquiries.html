@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Enquiries</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Enquiries</title>
+  <link rel="stylesheet" href="enquiries.css" />
+  <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-  <h1>Admin - Enquiries</h1>
-  <h2>Submitted Enquiries</h2>
-  <div id="submission-list">
-    <!-- Submitted enquiries will be displayed here -->
-  </div>
+
+   <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+           <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="add-car.html">Add Car</a></li>
+            <li><a href="manage-cars.html">Manage Cars</a></li>
+            <li><a href="enquiries.html">Customer Management</a></li>
+            <li><a href="pricing-management.html">Pricing Management</a></li>
+            <li><a href="financial-reports.html">Financial Reports</a></li>
+           <li><a href="clearance.html">Car Maintenance</a></li>
+            <li><a href="home.html">Return Home</a></li>
+        </ul>
+    </div>
+
+  <main>
+    <section class="customer-enquiries" id="customerEnquiries">
+      <h2>Customer Enquiries</h2>
+      <div class="enquiry-list" id="enquiryList">
+        <!-- Customer data will load here -->
+      </div>
+    </section>
+  </main>
 
   <script>
-    // Fetch the enquiry data from the server (submissions.json)
-    fetch('http://localhost:3000/view-enquiries')
-      .then(response => response.json())
-      .then(data => {
-        const submissionList = document.getElementById('submission-list');
-        
-        // Loop through the submissions and display each one
-        data.forEach(submission => {
-          const div = document.createElement('div');
-          div.classList.add('submission');
-          div.innerHTML = `
-            <h3>${submission.name}</h3>
-            <p><strong>Email:</strong> ${submission.email}</p>
-            <p><strong>Phone:</strong> ${submission.phone}</p>
-            <p><strong>Pickup Location:</strong> ${submission.pickupLocation}</p>
-            <p><strong>Pickup Date:</strong> ${submission.pickupDate}</p>
-            <p><strong>Return Date:</strong> ${submission.returnDate}</p>
-            <hr>
-          `;
-          submissionList.appendChild(div);
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching submissions:', error);
-        document.getElementById('submission-list').innerHTML = 'There was an error loading the submissions.';
+   // Fetch customer data from the API endpoint
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('http://localhost:3000/api/customers')
+    .then(response => response.json())
+    .then(data => {
+      const enquiryList = document.getElementById('enquiryList');
+
+      // Loop through the customers and display them
+      data.customers.forEach(customer => {
+        const customerCard = document.createElement('div');
+        customerCard.className = 'customer-card';
+
+        customerCard.innerHTML = `
+          <img src="${customer.customerImage}" alt="${customer.customerName}" class="customer-image">
+          <h3>${customer.customerName}</h3>
+          <p>Car Number Plate: ${customer.carNumberPlate}</p>
+          <p>Rental Days: ${customer.rentalDays}</p>
+          <p>Rental Start Date: ${customer.rentalStartDate}</p>
+          <p>Rental End Date: ${customer.rentalEndDate}</p>
+          <img src="${customer.agreementImage}" alt="Agreement Image" class="agreement-image">
+        `;
+
+        enquiryList.appendChild(customerCard);
       });
+    })
+    .catch(error => {
+      console.error('Error loading customer data:', error);
+    });
+});
+
   </script>
+
 </body>
 </html>
+

@@ -5,56 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Car Rentals</title>
     <link rel="stylesheet" href="manage-cars.css">
+     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-    <header>
-        <h1>Admin Panel</h1>
-        <nav>
-            <ul>
-                <li><a href="admin.html">Add Car</a></li>
-                <li><a href="manage-cars.html">Manage Cars</a></li>
-            </ul>
-        </nav>
-    </header>
+   <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+           <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="add-car.html">Add Car</a></li>
+            <li><a href="manage-cars.html">Manage Cars</a></li>
+            <li><a href="enquiries.html">Customer Management</a></li>
+            <li><a href="pricing-management.html">Pricing Management</a></li>
+            <li><a href="financial-reports.html">Financial Reports</a></li>
+           <li><a href="clearance.html">Car Maintenance</a></li>
+            <li><a href="home.html">Return Home</a></li>
+        </ul>
+    </div>
 
     <main>
         <section class="form-section">
-            <h2>Add New Car Rental</h2>
-            <form id="addCarForm" method="POST" action="saveCarRental.php" enctype="multipart/form-data">
-                <label for="carName">Car Name:</label>
-                <input type="text" id="carName" name="carName" required>
-
-                <label for="carImage">Car Image:</label>
-                <input type="file" id="carImage" name="carImage" accept="image/*" onchange="previewImage(event)" required>
-
-                <!-- Image preview before submitting -->
-                <img id="imagePreview" src="#" alt="Image Preview" style="display: none; width: 150px; height: 100px; object-fit: cover; margin-top: 10px;">
-
-                <label for="carDescription">Car Description:</label>
-                <textarea id="carDescription" name="carDescription" required></textarea>
-
-                <label for="price">Price:</label>
-                <input type="number" id="price" name="price" required>
-
-                <label for="currency">Currency:</label>
-                <select name="currency" id="currency" onchange="togglePriceFields()" required>
-                    <option value="USD">USD</option>
-                    <option value="Ksh">Ksh</option>
+            <h2>Allocate Car to Customer</h2>
+            <form id="allocateCarForm">
+                <label for="carNumberPlate">Car Number Plate:</label>
+                <select id="carNumberPlate" name="carNumberPlate" required>
+                    <option value="">Select a car</option>
+                    <!-- Options will be dynamically populated here by JS -->
                 </select>
+    
 
-                <div id="monthlyPriceSection" style="display: none;">
-                    <label for="monthlyPrice">Monthly Amount:</label>
-                    <input type="number" id="monthlyPrice" name="monthlyPrice">
-                </div>
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" name="customerName" required>
 
-                <div id="dailyPriceSection" style="display: none;">
-                    <label for="dailyPrice">Daily Amount:</label>
-                    <input type="number" id="dailyPrice" name="dailyPrice">
-                </div>
+    <label for="phoneNumber">Customer Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required>
 
-                <button type="submit">Add Car</button>
-            </form>
+    <label for="rentalDays">Number of Rental Days:</label>
+    <input type="number" id="rentalDays" name="rentalDays" required>
+
+    <label for="customerImage">Customer Image:</label>
+    <input type="file" id="customerImage" name="customerImage" accept="image/*" required>
+
+    <label for="agreementImage">Rental Agreement Image:</label>
+    <input type="file" id="agreementImage" name="agreementImage" accept="image/*" required>
+
+    <button type="submit">Allocate Car</button>
+</form> 
+   </section>
+
+        <section class="car-details" id="carDetails">
+            <h2>Car Details</h2>
+            <div id="carInfo">
+                <!-- Car details will be displayed here -->
+            </div>
+            <div id="rentalCountdown">
+                <!-- Countdown timer will be shown here -->
+            </div>
         </section>
     </main>
 
@@ -63,31 +70,80 @@
     </footer>
 
     <script>
-        // Function to preview the image before uploading
-        function previewImage(event) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                var output = document.getElementById('imagePreview');
-                output.src = reader.result;
-                output.style.display = 'block';  // Show the image preview
-            }
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-        // Function to toggle the visibility of price input fields based on currency selection
-        function togglePriceFields() {
-            var currency = document.getElementById('currency').value;
-            var monthlyPriceSection = document.getElementById('monthlyPriceSection');
-            var dailyPriceSection = document.getElementById('dailyPriceSection');
-
-            if (currency === 'USD') {
-                monthlyPriceSection.style.display = 'block';
-                dailyPriceSection.style.display = 'block';
-            } else if (currency === 'Ksh') {
-                monthlyPriceSection.style.display = 'block';
-                dailyPriceSection.style.display = 'none';  // Hide daily price for Ksh
+        // Function to fetch available cars from the server and populate the dropdown
+        async function fetchCarNames() {
+            try {
+                const response = await fetch('/api/cars');  // Fetch available cars from the API
+                const cars = await response.json();
+                
+                const carSelect = document.getElementById('carNumberPlate');
+                
+                // Clear existing options
+                carSelect.innerHTML = '<option value="">Select a car</option>';
+                
+                // Populate the dropdown list with car names
+                cars.forEach(car => {
+                    const option = document.createElement('option');
+                    option.value = car.id;  // The car's number plate or ID
+                    option.textContent =car.id;  // Display the car name in the dropdown
+                    carSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching car data:', error);
             }
         }
+
+        // Handle car allocation form submission
+        document.getElementById('allocateCarForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const carNumberPlate = document.getElementById('carNumberPlate').value;
+            const customerName = document.getElementById('customerName').value;
+            const rentalDays = document.getElementById('rentalDays').value;
+
+            const response = await fetch('/allocate-car', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ numberPlate: carNumberPlate, customerName, rentalDays })
+            });
+
+            if (response.ok) {
+                alert('Car allocated successfully');
+                fetchCarDetails(carNumberPlate);  // Fetch and display car details
+            } else {
+                alert('Failed to allocate car');
+            }
+        });
+
+        // Fetch car details by number plate
+        async function fetchCarDetails(numberPlate) {
+            const response = await fetch(`/car/${numberPlate}`);
+            const car = await response.json();
+
+            if (car) {
+                document.getElementById('carInfo').innerHTML = `
+                    <p>Car Name: ${car.carName}</p>
+                    <p>Description: ${car.carDescription}</p>
+                    <p>Price: ${car.price} ${car.currency}</p>
+                    <p>Status: ${car.status}</p>
+                `;
+                
+                // Calculate rental countdown (if rented)
+                if (car.status.startsWith("Rented")) {
+                    const rentalEndDate = new Date(car.rentalDetails.rentalEndDate);
+                    setInterval(() => {
+                        const timeRemaining = rentalEndDate - new Date();
+                        const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                        document.getElementById('rentalCountdown').innerHTML = `Days Remaining: ${daysRemaining}`;
+                    }, 86400000); // Update every day
+                }
+            }
+        }
+
+        // Call fetchCarNames on page load to populate the dropdown
+        window.onload = function() {
+            fetchCarNames();  // Populate the dropdown with available cars
+        };
     </script>
 
 </body>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "fullName": "Admin User",
+    "email": "praisjo02@gmail.com",
+    "password": "kenya@2020",
+    "role": "admin"
+  },
+  {
+    "email": "newuser@example.com",
+    "password": "$2b$10$qIBXwW3XDe8HbWCSYkoD7ur41..bjwBy6nSRchRHqQybquWqtdqEC"
+  },
+  {
+    "email": "newuser@example.com",
+    "password": "$2b$10$cTEPW/VnFVX5CxvTkE9E6upqkaJuZcX3.Jnr.ibKR0YmTvJNKdFkO"
+  }
+ 
+]

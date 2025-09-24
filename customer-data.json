@@ -1,0 +1,15 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "carNumberPlate": "KDU 447C",
+      "customerName": "John Doe",
+      "rentalDays": 5,
+      "customerImage": "images/johndoe.jpg",
+      "agreementImage": "images/agreement.jpg",
+      "rentalStartDate": "2025-07-01",
+      "rentalEndDate": "2025-07-06"
+    }
+  ]
+}
+

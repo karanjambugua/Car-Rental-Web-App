@@ -1,105 +1,143 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and font styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    color: #333;
 }
 
+/* Header Styles */
 header {
-    background-color: #333;
+    background-color: #2c3e50;
     color: white;
     padding: 20px;
     text-align: center;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
+/* Navigation Panel */
+nav {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #2c3e50;
+    padding-top: 30px;
 }
 
-header nav ul li {
-    display: inline;
-    margin-right: 20px;
+nav ul {
+    list-style-type: none;
 }
 
-header nav ul li a {
+nav ul li {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #34495e;
+}
+
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-}
-
-.car-list {
-    width: 80%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.car-list h2 {
-    font-size: 28px;
-    text-align: center;
-    color: #333;
-}
-
-.car-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    background-color: #fff;
-    justify-content: space-between;
-}
-
-.car-container img {
-    width: 150px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 20px;
-}
-
-.car-container h3 {
-    font-size: 22px;
-    margin: 0;
-    color: #333;
-    flex: 1;
-}
-
-.car-container p {
     font-size: 16px;
-    color: #777;
-    flex: 1;
 }
 
-.car-container form {
-    display: inline-block;
+nav ul li a:hover {
+    background-color: #34495e;
+    display: block;
 }
 
-.car-container button {
-    background-color: #ff5a5f;
+/* Main Content Area */
+main {
+    margin-left: 250px; /* To ensure the content appears to the right of the navigation panel */
+    padding: 20px;
+    height: 100vh;
+}
+
+/* Form Section Styles */
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-section label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.form-section button {
+    padding: 10px 20px;
+    background-color: #3498db;
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 14px;
 }
 
-.car-container button:hover {
-    background-color: #e74c3c;
+.form-section button:hover {
+    background-color: #2980b9;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+/* Image Preview */
+#imagePreview {
+    margin-top: 10px;
+    display: block;
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        width: 200px;
+    }
+
+    main {
+        margin-left: 200px;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .form-section h2 {
+        font-size: 20px;
+    }
+
+    .form-section label,
+    .form-section input,
+    .form-section textarea,
+    .form-section select {
+        font-size: 14px;
+    }
+
+    .form-section button {
+        font-size: 14px;
+    }
+}
+

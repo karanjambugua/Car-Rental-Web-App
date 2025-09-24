@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELEGANCE | Rent a Car in Minutes</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="faq.css">
     <link rel="stylesheet" href="submit-form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
-  <div class="logo">ELEGANCE</div>
+ <div class="logo" id="adminTrigger">ELEGANCE</div> <!-- Hidden trigger -->
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li class="dropdown">
@@ -251,9 +252,7 @@
   <button class="view-all-btn" onclick= "viewall()"> View All Cars</button>
 </div>
 
-</section>
 
-</section>
 
     <section id="rental-intro" class="rental-banner">
   <div class="rental-overlay">
@@ -261,57 +260,95 @@
     <p class="rental-subtext">Your dream car is just a click away. Rent it now and hit the road in style.</p>
     <button class="intro-btn" onclick="bookNow()">Book Now</button>
   </div>
-</section>
-    <section class="faq-section">
-    <h2>Car hire in Kenya: FAQs</h2>
-
-    <div class="faq-item">
-        <button class="faq-question">Do I need extra insurance to rent a car in Kenya?</button>
-        <div class="faq-answer">
-            <p>Yes, we offer extra insurance for your peace of mind. You can choose to add it at the time of booking.</p>
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <button class="faq-question">What age do you need to be to hire a car in Kenya?</button>
-        <div class="faq-answer">
-            <p>You must be at least 23 years old to hire a car. Drivers under 25 may be required to pay an additional fee.</p>
-        </div>
-    </div>
-
-    <!-- Question 8 -->
-  <div class="faq-item">
-    <button class="faq-question">
-      Do you offer car rentals with a driver in Kenya?
-    </button>
-    <div class="faq-answer">
-      <p>Yes, we offer the option to rent cars with a driver. This is perfect for guests who want a local guide or for those who prefer not to drive themselves. Please let us know in advance to arrange this service.</p>
-    </div>
-  </div>
-
-  <!-- Question 9 -->
-  <div class="faq-item">
-    <button class="faq-question">
-      Can I modify or cancel my car rental reservation?
-    </button>
-    <div class="faq-answer">
-      <p>Yes, you can modify or cancel your booking up to 48 hours before the rental period begins. Please review our cancellation policy for further details.</p>
-    </div>
-  </div>
-
-  <!-- Question 10 -->
-  <div class="faq-item">
-    <button class="faq-question">
-      How are car rental prices determined in Kenya?
-    </button>
-    <div class="faq-answer">
-      <p>Our car rental prices depend on the car type, rental duration, and availability. We offer competitive pricing and occasional discounts for longer rentals or advanced bookings.</p>
-    </div>
-  </div>
-
 
 </section>
+  
 
+<div class="container">
+    <section class="unique-faq-section">
+        <h2 class="unique-faq-title">Car Rental in Kenya: Frequently Asked Questions</h2>
+
+        <div class="unique-faq-container" id="section-1">
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Do I need extra insurance to rent a car in Kenya?</button>
+                <div class="unique-faq-answer">
+                    <p>Yes, we offer extra insurance for your peace of mind. You can choose to add it at the time of booking.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">What age do you need to be to hire a car in Kenya?</button>
+                <div class="unique-faq-answer">
+                    <p>You must be at least 23 years old to hire a car. Drivers under 25 may be required to pay an additional fee.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Do you offer car rentals with a driver in Kenya?</button>
+                <div class="unique-faq-answer">
+                    <p>Yes, we offer the option to rent cars with a driver. This is perfect for guests who want a local guide or for those who prefer not to drive themselves. Please let us know in advance to arrange this service.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Can I modify or cancel my car rental reservation?</button>
+                <div class="unique-faq-answer">
+                    <p>Yes, you can modify or cancel your booking up to 48 hours before the rental period begins. Please review our cancellation policy for further details.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item centered">
+                <button class="unique-faq-question">How are car rental prices determined in Kenya?</button>
+                <div class="unique-faq-answer">
+                    <p>Our car rental prices depend on the car type, rental duration, and availability. We offer competitive pricing and occasional discounts for longer rentals or advanced bookings.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden FAQ items for the second section -->
+        <div class="unique-faq-container hidden" id="section-2">
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Do you offer 4x4 rentals for safaris in Kenya?</button>
+                <div class="unique-faq-answer">
+                    <p>Yes, we offer 4x4 vehicles suitable for safaris, providing an ideal experience for off-road adventures in Kenya's national parks.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">What happens if I return the car late?</button>
+                <div class="unique-faq-answer">
+                    <p>If you return the car late, you may incur additional charges based on our late return policy. Please ensure timely returns to avoid extra fees.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Can I rent a car without a credit card?</button>
+                <div class="unique-faq-answer">
+                    <p>We generally require a credit card for the security deposit, but we may accept other payment methods upon special request. Please contact us for more details.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Are there any age restrictions for renting a car in Kenya?</button>
+                <div class="unique-faq-answer">
+                    <p>Yes, drivers must be at least 23 years old to rent a car. However, drivers under 25 may be required to pay an additional young driver fee.</p>
+                </div>
+            </div>
+
+            <div class="unique-faq-item">
+                <button class="unique-faq-question">Do you offer one-way rentals?</button>
+                <div class="unique-faq-answer">
+                    <p>Yes, we offer one-way rentals, allowing you to pick up the car in one location and return it at a different branch within Kenya.</p>
+                </div>
+            </div>
+        </div> 
+   
+      
+        </div>
+    </section>
+</div>
+
+</div>
 
   <footer>
   <div class="footer-overlay">
@@ -359,15 +396,54 @@
 
 
     <script>
-      // JavaScript to toggle the FAQ dropdowns
-const faqQuestions = document.querySelectorAll('.faq-question');
 
-faqQuestions.forEach((question) => {
-    question.addEventListener('click', () => {
-        const parentItem = question.parentElement;
-        parentItem.classList.toggle('active'); // Toggle the active class to show/hide the answer
+      let clickCount = 0;
+
+// Listen for clicks on "Elegance" logo
+document.getElementById('adminTrigger').addEventListener('click', function() {
+  clickCount++;
+
+  if (clickCount === 3) {
+    window.location.href = "admin-login.html"; // Redirect to admin login page
+  }
+
+  // Reset click count after 5 seconds
+  setTimeout(() => clickCount = 0, 5000);
+});
+
+// JavaScript to toggle the FAQ dropdowns
+document.addEventListener('DOMContentLoaded', function () {
+    const faqItems = document.querySelectorAll('.unique-faq-item');
+    const showSection1Button = document.getElementById('show-section-1');
+    const showSection2Button = document.getElementById('show-section-2');
+    const section1 = document.getElementById('section-1');
+    const section2 = document.getElementById('section-2');
+
+    // Toggle FAQ items visibility
+    faqItems.forEach(item => {
+        const question = item.querySelector('.unique-faq-question');
+        question.addEventListener('click', function () {
+            item.classList.toggle('active');
+        });
+    });
+
+    // Toggle sections
+    showSection1Button.addEventListener('click', function () {
+        section1.classList.remove('hidden');
+        section2.classList.add('hidden');
+        showSection1Button.classList.add('active');
+        showSection2Button.classList.remove('active');
+    });
+
+    showSection2Button.addEventListener('click', function () {
+        section2.classList.remove('hidden');
+        section1.classList.add('hidden');
+        showSection2Button.classList.add('active');
+        showSection1Button.classList.remove('active');
     });
 });
+
+
 //END
 
   function showCategory(category) {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clearance - Manage Rentals</title>
+  <link rel="stylesheet" href="clearance.css" />
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+   <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="admin.html">Dashboard</a></li>
+            <li><a href="add-car.html">Add Car</a></li>
+            <li><a href="manage-cars.html">Manage Cars</a></li>
+            <li><a href="enquiries.html">Customer Management</a></li>
+            <li><a href="pricing-management.html">Pricing Management</a></li>
+            <li><a href="financial-reports.html">Financial Reports</a></li>
+            <li><a href="clearance.html">Car Maintenance</a></li>
+            <li><a href="home.html">Return Home</a></li>
+        </ul>
+    </div>
+
+  <main>
+    <section class="clearance" id="clearance">
+      <h2>Clearance - Mark Rented Cars as Returned</h2>
+      <div class="clearance-list" id="clearanceList">
+        <!-- Cars to be cleared will load here -->
+      </div>
+      <button id="clearCarsBtn">Clear Selected Cars</button>
+    </section>
+  </main>
+
+  <script src="clearance.js"></script>
+</body>
+</html>

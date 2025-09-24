@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+  <div class="login-container">
+    <!-- Login Form Section -->
+    <div class="login-form">
+      <h2>Welcome Back</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Enter your email" required />
+        <input type="password" id="password" placeholder="Enter your password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <!-- Loading Spinner -->
+      <div class="loading-spinner" id="loadingSpinner"></div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="login-image">
+      <!-- Background image can be added here -->
+    </div>
+  </div>
+
+  <script>
+  // This script handles the login form submission process
+
+  // Get references to the form and loading spinner
+ const loginForm = document.getElementById('loginForm');
+const loadingSpinner = document.getElementById('loadingSpinner');
+
+loginForm.addEventListener('submit', async function(event) {
+  event.preventDefault();  // Prevent the form from submitting traditionally
+
+  const email = document.getElementById('email').value;  // Get the email from the input field
+  const password = document.getElementById('password').value;  // Get the password from the input field
+
+  // Show the loading spinner while processing
+  loadingSpinner.style.display = 'block';
+
+  // Basic validation to ensure email and password are entered
+  if (!email || !password) {
+    loadingSpinner.style.display = 'none';
+    alert("Both fields are required.");
+    return;
+  }
+
+  try {
+    // Sending POST request to the backend
+    const response = await fetch('http://localhost:3000/login', {  // Ensure this matches the backend route
+      method: 'POST',  // Ensure POST method is used
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),  // Send the email and password as a JSON body
+    });
+
+    // Check if the response is OK (status 200-299)
+    if (!response.ok) {
+      // If the response status is not OK, throw an error with the status
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // Parse the response as JSON
+    const data = await response.json();
+
+    // Hide the loading spinner after the response is received
+    loadingSpinner.style.display = 'none';
+
+    // Handle the server response based on the success value
+    if (data.success) {
+      // If login is successful, redirect the user to another page (e.g., admin page)
+      window.location.href = '/admin.html';  // Replace with the page you want to redirect to
+    } else {
+      // If login fails, show the error message from the server
+      alert(data.message || "Invalid email or password.");
+    }
+  } catch (error) {
+    // If there’s an error with the fetch request, hide the spinner and show an error alert
+    loadingSpinner.style.display = 'none';
+    alert(`Error occurred: ${error.message}. Please try again.`);
+  }
+});
+
+
+</script>
+
+</body>
+
+</html>
+
