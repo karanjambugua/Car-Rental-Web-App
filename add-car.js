@@ -8,7 +8,9 @@ const fs =  require('fs-extra');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'home.html'));
+});
 const cors = require('cors');
 app.use(cors());
 
