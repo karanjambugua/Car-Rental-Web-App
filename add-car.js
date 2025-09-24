@@ -30,7 +30,8 @@ app.post('/add-car', async (req, res) => {
 });
 
 // Paths
-const apiUrl = process.env.API_URL || 'http://localhost:3000';
+const port = process.env.PORT || 3000;  
+const apiUrl = process.env.API_URL || 'http://localhost:3000';  // Default to localhost if no API_URL is defined
 const usersFilePath = path.join(__dirname, 'users.json'); // Path to the users JSON file
 const dataFilePath = path.join(__dirname, 'data.json');
 const imageFolder = path.join(__dirname, 'images');
@@ -509,7 +510,6 @@ app.post('/add-user', async (req, res) => {
 
 
 // Start the server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen((process.env.PORT || 3000), () => {
+  console.log(`Server running on port ${process.env.PORT || 3000}`);
 });

@@ -55,7 +55,7 @@ loginForm.addEventListener('submit', async function(event) {
   try {
    // Fetch the correct API URL from the environment variable
     const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'; // Default to localhost if not set
-
+    console.log(apiUrl); 
     // Sending POST request to the backend
     const response = await fetch(`${apiUrl}/login`, {
       method: 'POST',
