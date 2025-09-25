@@ -32,10 +32,11 @@
   <script>
   // This script handles the login form submission process
 
-  // Get references to the form and loading spinner
- const loginForm = document.getElementById('loginForm');
+// Get references to the form and loading spinner
+const loginForm = document.getElementById('loginForm');
 const loadingSpinner = document.getElementById('loadingSpinner');
 
+// Event listener for form submission
 loginForm.addEventListener('submit', async function(event) {
   event.preventDefault();  // Prevent the form from submitting traditionally
 
@@ -53,18 +54,14 @@ loginForm.addEventListener('submit', async function(event) {
   }
 
   try {
-   // Fetch the correct API URL from the environment variable
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'; // Default to localhost if not set
-    console.log(apiUrl); 
-    // Sending POST request to the backend
-    const response = await fetch(`${apiUrl}/login`, {
+    // Send credentials to server using POST
+    const response = await fetch('/login', {  // No need to specify the port, it'll be based on where the script runs
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email, password }), // Send the email and password as a JSON body
+      body: JSON.stringify({ email, password })  // Send the email and password as a JSON body
     });
-
 
     // Check if the response is OK (status 200-299)
     if (!response.ok) {
@@ -81,7 +78,7 @@ loginForm.addEventListener('submit', async function(event) {
     // Handle the server response based on the success value
     if (data.success) {
       // If login is successful, redirect the user to another page (e.g., admin page)
-      window.location.href = '/admin.html';  // Replace with the page you want to redirect to
+      window.location.href = '/admin.html';  // Redirect to admin page or dashboard
     } else {
       // If login fails, show the error message from the server
       alert(data.message || "Invalid email or password.");
@@ -92,6 +89,7 @@ loginForm.addEventListener('submit', async function(event) {
     alert(`Error occurred: ${error.message}. Please try again.`);
   }
 });
+
 
 
 </script>
